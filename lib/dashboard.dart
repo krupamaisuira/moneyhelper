@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:moneyhelper/userstate.dart';
+import 'package:moneyhelper/viewexpense.dart';
 import 'package:provider/provider.dart';
+import 'addexpense.dart';
 import 'addincome.dart';
 import 'main.dart';
 
@@ -21,8 +23,8 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
   final List<Widget> _pages = [
     AddIncomePage(),
     AddIncomePage(),
-    AddIncomePage(),
-    AddIncomePage(),
+    AddExpensePage(),
+    ViewExpensePage(),
 
   ];
   @override
