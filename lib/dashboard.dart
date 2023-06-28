@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:moneyhelper/userstate.dart';
 import 'package:moneyhelper/viewexpense.dart';
@@ -6,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'addexpense.dart';
 import 'addincome.dart';
 import 'main.dart';
-
+import 'moneyhelperdashboard.dart';
 
 void main() {
   runApp(MyDashboardPage());
@@ -21,23 +20,21 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    AddIncomePage(),
+    MoneyHelperDash(),
     AddIncomePage(),
     AddExpensePage(),
     ViewExpensePage(),
-
   ];
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     // Retrieve the argument value when the widget is first built
-    final value   = ModalRoute.of(context)?.settings.arguments ;
+    final value = ModalRoute.of(context)?.settings.arguments;
     if (value != null) {
       _selectedIndex = value as int;
-
     }
-
   }
 
   void _onTabTapped(int index) {
@@ -50,19 +47,13 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
       );
     } else {
       setState(() {
-
-
         _selectedIndex = index;
       });
     }
-
-
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     // final value = ModalRoute.of(context)?.settings.arguments;
     // if (value != null) {
     //   _selectedIndex = value as int;
@@ -82,11 +73,15 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onTabTapped,
-        selectedItemColor: Colors.blue, // Set the color for selected item
+        selectedItemColor: Colors.blue,
+        // Set the color for selected item
         unselectedItemColor: Colors.black,
-        showSelectedLabels: true, // Ensure labels are shown
-        showUnselectedLabels: true, // Ensure labels are shown
-        selectedLabelStyle: TextStyle(color: Colors.blue), // Set selected label text color
+        showSelectedLabels: true,
+        // Ensure labels are shown
+        showUnselectedLabels: true,
+        // Ensure labels are shown
+        selectedLabelStyle: TextStyle(color: Colors.blue),
+        // Set selected label text color
         unselectedLabelStyle: TextStyle(color: Colors.black),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -114,8 +109,3 @@ class _MyDashboardPageState extends State<MyDashboardPage> {
     );
   }
 }
-
-
-
-
-
